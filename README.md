@@ -32,6 +32,7 @@
 ├── 01_Analise/
 │   └── spikes/
 │       ├── eval/                         # Avaliação de consistência
+│       │   ├── resultados/               # Resultados e ficheiro CSV a comparar as diferentes abordagens com WMD
 │       │   ├── samples/                  # Textos TXT para análise de consistência
 │       │   ├── bwd_txt_TFIDF.py          # Word Mover's Distance com filtragem IDF
 │       │   ├── bwd_txt.py                # Word Mover's Distance para textos
@@ -72,8 +73,8 @@
 ### 1. Clonar o repositório
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd <NOME_DO_REPOSITORIO>
+git clone https://github.com/mikos2004/TFM_MEIM_50746.git
+cd TFM_MEIM_50746
 ```
 
 ### 2. Criar e ativar um ambiente virtual (recomendado)
