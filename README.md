@@ -16,15 +16,13 @@
 
 ##  Índice
 
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-
-- [Instalação](#-instalação)
-- [Módulos e Componentes](#-módulos-e-componentes)
-- [Como Utilizar](#-como-utilizar)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Instalação](#instalacao)
+- [Módulos e Componentes](#modulos-e-componentes)
+- [Como Utilizar](#como-utilizar)
 
 ---
-
+<a id="estrutura-do-projeto"></a>
 ##  Estrutura do Projeto
 
 ```
@@ -67,7 +65,7 @@
 ```
 
 ---
-
+<a id="instalacao"></a>
 ##  Instalação
 
 ### 1. Clonar o repositório
@@ -130,7 +128,7 @@ ollama pull snowflake-arctic-embed2
 ```
 
 ---
-
+<a id="modulos-e-componentes"></a>
 ##  Módulos e Componentes
 
 ###  `eval/` — Avaliação de Consistência
@@ -179,7 +177,7 @@ Ficheiros auxiliares:
 - `client_http.py` — exemplo de cliente HTTP.
 
 ---
-
+<a id="como-utilizar"></a>
 ##  Como Utilizar
 
 > **Nota:** Ao correr algum script que recorra a um modelo **Ollama** deve verificar de que tem o Ollama a correr.
