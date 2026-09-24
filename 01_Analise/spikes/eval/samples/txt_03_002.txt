@@ -1,0 +1,38 @@
+Relatório clínico — Consulta de Cardiologia
+
+Doente: Fernanda Isabel Costa
+Idade: 71 anos
+Sexo: feminino
+Data de admissão: 22/03/2024
+
+Motivo de consulta: valores tensionais persistentemente elevados e
+edema dos membros inferiores.
+
+História da doença atual:
+Doente hipertensa há cerca de doze anos, com difícil controlo
+tensional apesar de terapêutica tripla. Refere nas últimas semanas
+tensão arterial entre 155/92 e 172/100 mmHg, edema bilateral dos
+tornozelos ao fim do dia e episódios de dispneia para esforços
+moderados. Nega dor torácica.
+
+Antecedentes pessoais:
+Hipertensão arterial em tratamento com valsartan, anlodipina e
+espironolactona. Insuficiência cardíaca com fração de ejeção
+ligeiramente reduzida. Dislipidemia.
+
+Exame objetivo:
+Tensão arterial 162/96 mmHg. Frequência cardíaca 76 bpm. Edema
+pré-tibial bilateral, mole, com godet. Auscultação cardíaca com
+ritmo regular e sopro sistólico suave. Auscultação pulmonar com
+crepitações basais.
+
+Exames complementares:
+Ecocardiograma com fração de ejeção 45%. NT-proBNP 980 pg/mL.
+Creatinina 1,3 mg/dL. Potássio 4,2 mEq/L.
+
+Diagnóstico: hipertensão arterial não controlada em contexto de
+insuficiência cardíaca.
+
+Plano: ajuste da terapêutica diurética, otimização do esquema
+anti-hipertensor, restrição hídrica e salina, reavaliação em
+quatro semanas com análises de controlo.

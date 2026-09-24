@@ -1,0 +1,2 @@
+npx @modelcontextprotocol/inspector <link-server>
+npx @modelcontextprotocol/inspector python <path>

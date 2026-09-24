@@ -1,0 +1,33 @@
+Relatório clínico — Consulta de Pneumologia
+
+Doente: Beatriz Alexandra Lopes
+Idade: 46 anos
+Sexo: feminino
+Data de admissão: 27/02/2024
+
+Motivo de consulta: tosse seca, febre e sensação de aperto torácico.
+
+História da doença atual:
+Doente com antecedentes de asma ligeira intermitente, refere desde
+há seis dias tosse inicialmente seca, febre até 38,2 °C, sensação de
+aperto no peito e pieira noturna. Refere também corrimento nasal e
+odinofagia nos primeiros dias. Nega expetoração purulenta.
+
+Antecedentes pessoais:
+Asma brônquica ligeira, com salbutamol de resgate. Rinite alérgica.
+Não fumadora.
+
+Exame objetivo:
+Temperatura 37,8 °C. Frequência respiratória 18 cpm. Saturação de
+oxigénio 97% em ar ambiente. Auscultação pulmonar com sibilos
+difusos e expiração prolongada. Orofaringe hiperemiada.
+
+Exames complementares:
+Radiografia de tórax sem focos de consolidação. Leucócitos
+8 200/µL. PCR 32 mg/L. Teste rápido de influenza negativo.
+
+Diagnóstico: bronquite aguda em doente com asma.
+
+Plano: reforço da terapêutica inalada com corticoide, salbutamol
+conforme necessário, antipirético, hidratação e reavaliação em uma
+semana se persistência dos sintomas.

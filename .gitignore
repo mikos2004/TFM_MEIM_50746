@@ -1,0 +1,22 @@
+# Pastas
+aux_fold/
+meimprj/
+__pycache__/
+ref/
+
+# Ficheiros específicos
+config.env
+secrets.json
+my_req.bat
+*.log
+
+# Extensões
+*.pyc
+*.exe
+*.zip
+*.env
+*.odt
+
+
+# IDE
+.vscode/

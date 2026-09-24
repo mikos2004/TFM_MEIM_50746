@@ -1,0 +1,32 @@
+Relatório clínico — Consulta de Pneumologia
+
+Doente: Tiago Nuno Ribeiro
+Idade: 34 anos
+Sexo: masculino
+Data de admissão: 09/01/2024
+
+Motivo de consulta: tosse persistente, expetoração e febre.
+
+História da doença atual:
+Doente previamente saudável, refere desde há cinco dias tosse
+produtiva com expetoração amarelada, febre até 38,7 °C, dor torácica
+pleurítica à direita e cansaço. Nega viagens recentes ou contacto
+com doentes infeciosos.
+
+Antecedentes pessoais:
+Sem antecedentes relevantes. Não fumador. Sem medicação habitual.
+
+Exame objetivo:
+Temperatura 38,4 °C. Frequência respiratória 22 cpm. Saturação de
+oxigénio 94% em ar ambiente. Auscultação pulmonar com crepitações
+na base direita. Restante exame sem alterações.
+
+Exames complementares:
+Radiografia de tórax com foco de consolidação no lobo inferior
+direito. Leucócitos 13 500/µL com neutrofilia. PCR 98 mg/L.
+
+Diagnóstico: pneumonia adquirida na comunidade.
+
+Plano: amoxicilina com ácido clavulânico 875/125 mg duas vezes por
+dia durante sete dias, antipirético conforme necessário, hidratação
+e reavaliação em cinco dias.
