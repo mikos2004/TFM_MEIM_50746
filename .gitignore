@@ -3,6 +3,7 @@ aux_fold/
 meimprj/
 __pycache__/
 ref/
+notes/
 
 # Ficheiros específicos
 config.env

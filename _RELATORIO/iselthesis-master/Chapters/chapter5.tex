@@ -1,0 +1,97 @@
+% 
+%  chapter5.tex
+%  ISELthesis
+%  
+%  Created by Matilde Pós-de-Mina Pato on 2012/10/09.
+%
+\chapter{Trabalho Relacionado Estado de Arte}
+\label{cha:trab_art}
+
+Nesta secção, serão abordadas algumas  das implementações nas quais inteligência artificial tem estado a ser usada nos últimos anos e algumas sugestões, de outros autores, para o seu uso futuro.
+
+Em seguida, aprofundar-se-á o estudo sobre o uso de inteligência artificial no contexto policial, sobre o qual o trabalho incide, e identificar-se-á algumas necessidades, e que a IA pode auxiliar, que ainda não foram atendidas, como é o caso da automatização do planeamento de investigações criminais.
+
+\section{Inteligência Artificial e as suas aplicações}
+\label{sec:ia_aplic}
+
+Desde do momento do lançamento do ChatGPT, em novembro de 2022, que todas as pessoas, empresas e entidades tentam encontrar a melhor forma de integrar esta ferramenta no seu dia-a-dia.
+
+Segundo o livro \textit{Unlocking Artificial Intelligence: From Theory to Applications} [mx - unlock AI], os autores apresentam alguns sistemas que usam Inteligência Artificial, 
+
+Um outro contexto que encontrou na inteligência artificial um bom aliado é o policial. Existem vários processos que podem ter automatizados e novas abordagens que se tornam possíveis com este tipo de tecnologia a integrar o quotidiano das investigação.
+
+\section{Inteligência Artificial no contexto policial}
+\label{sec:ia_policia}
+
+\section{Planeamento Automático}
+\label{sec:plan_auto}
+
+Um agente de planeamento tem a seu cargo a tarefa de definir uma sequência de ações que permita atingir um objetivo. [mx - IASA Livro].
+
+O planeamento, segundo [mx - autores APL] [mx - APL] envolve a escolha e organização de ações que permitam realizar uma tarefa ou atingir um determinado objetivo. Esta atividade implica, por norma, recorrer a modelos abstratos de uma lista de ações que o agente pode realizar.
+
+\section{LLM e planeamento} %% 
+\label{sec:llm_plan}
+
+\section{Agentes e Arquiteturas}
+\label{sec:agentes_arq}
+
+Os modelos de base como os LLM, sozinhos não são capazes de resolver sozinhas problemas mais complexos, que envolvem a recolha de informação de diversas fontes, a escolha entre ferramentas e a execução de ações em várias etapas
+sob restrições, como latência, permissões, segurança e custo, entre fatores. [mx - art. 29]
+
+Para preencher esta lacuna, existem os agentes de inteligência artificial, que são capazes de captar o estado do ambiente, traçar um plano, aceder a ferramentas, atualizar a memória e verificar os resultados. [mx - art. 29]
+
+\subsection{Conceito de agente e taxonomias}
+
+Os agentes de inteligência artificial são sistemas que combinam modelos de base com raciocínio, planeamento, memória e utilização de ferramentas. [mx - art. 29]. O desenvolvimento de agentes acelerou bastante depois da OpenAI disponibilizar a API para \textit{function-calling}, no final de 2023. [mx - IBM]
+
+Deste modo, no começo de 2026, Bin Xu propõe uma definição formal de \textit{agent transformer}, nome a que o autor atribui a uma abstração de um agente genérico, que procura unificar a terminologia dispersa na literatura: um agente é descrito como um tuplo
+\begin{equation}
+	\mathcal{A} = (\pi_{\theta}, \mathcal{M}, \mathcal{T}, \mathcal{V}, \mathcal{E}),
+	\label{eq:agent_transformer}
+\end{equation}
+em que \(\pi_{\theta}\) representa a política \textit{transformer} (LLM/VLM), \(\mathcal{M}\) a memória, \(\mathcal{T}\) o conjunto de ferramentas, \(\mathcal{V}\) os verificadores/críticos e \(\mathcal{E}\) o ambiente [mx - art. 29]. Esta formalização é acompanhada de um \textit{loop} de execução explícito. 
+
+Primeiro dá-se a \textbf{fase de observação} com a recolha de informação do ambiente. Depois a seguem-se a fase de \textbf{recuperação de memória relevante}, a de \textbf{proposta de ação} que recorre à política \(\pi_{\theta}\) condicionada pela observação e memória recuperada. Por fim, dá-se a \textbf{fase de validação} com \(\mathcal{V}\), a de \textbf{execução} que executa a ferramenta escolhida pela ação, que acaba no final por atualizar o ambiente e a memória. Este loop é apresentado nas seguintes equações?
+
+\begin{align}
+	\mathcal{A} &= (\pi_{\theta}, \mathcal{M}, \mathcal{T}, \mathcal{V}, \mathcal{E}), \tag{1} \\[4pt]
+	o_t &\leftarrow \mathrm{Obs}(\mathcal{E}_t), \quad m_t \leftarrow \mathrm{Retrieve}(\mathcal{M}_t, o_t), \tag{2} \\[4pt]
+	\tilde{a}_t &\sim \pi_{\theta}(\cdot \mid o_t, m_t), \quad \hat{a}_t \leftarrow \mathrm{Validate}(\mathcal{V}, \tilde{a}_t), \tag{3} \\[4pt]
+	\mathcal{E}_{t+1} &\leftarrow \mathrm{Exec}(\mathcal{E}_t, \mathcal{T}, \hat{a}_t), \quad \mathcal{M}_{t+1} \leftarrow \mathrm{Update}(\mathcal{M}_t, o_t, \hat{a}_t, \mathcal{E}_{t+1}). \tag{4}
+\end{align}
+
+Neste contexto, o autor coloca o agente como um \textit{budgeted controller} e ciente do risco: ações de baixo risco correm com quase nenhuma intervenção, enquanto ações de alto impacto exigem verificação adicional ou confirmação humana [mx - art. 29].
+
+%%%%%%%%%%%%%%%%
+%% TAXONOMIA ART. 22 / ART . 23)
+%%%%%%%%%%%%%%%
+
+No mesmo artigo [mx - art. 29], o autor apresenta uma taxonomia que se aplica ao \textbf{domínio e aplicação}. Esta categorização organiza os agentes pelo \emph{tipo de tarefa e de ambiente} que enfrentam e leva em conta três eixos: (i) o \textbf{foco dominante da interação} (texto/ferramentas, incorporação física, ambientes simulados), (ii) o \textbf{alvo generativo} (conteúdo, mundos, experiências) e (iii) o \textbf{substrato de raciocínio} (conhecimento, lógica, emoção, estrutura neuro-simbólica). A partir destes eixos, surgem seis categorias: \textbf{agentes generalistas}, \textbf{agentes incorporados}, \textbf{agentes de simulação e ambientes}, \textbf{agentes generativos}, \textbf{agentes de conhecimento e inferência lógica}, e \textbf{agentes LLM/VLM}. O autor caracteriza esta taxonomia como \textit{pragmática}, pois pretende refletir as restrições que mais condicionam o design como a observabilidade, segurança, latência, verificação e avaliação. [mx - art. 29]
+
+\begin{itemize}
+	\item \textbf{Agentes generalistas:} resolvem tarefas heterogéneas (código, navegação, análises, \textit{workflows} empresariais) com um núcleo de política partilhado, ferramentas modulares e memória.
+	\item \textbf{Agentes incorporados:} atuam no mundo físico (robótica, dispositivos inteligentes), onde as ações têm custos reais e a segurança é primordial.
+	\item \textbf{Agentes de simulação e ambientes:} operam em ambientes virtuais (jogos, \textit{web sandboxes}, mundos sintéticos), onde a interação é mais barata e escalável.
+	\item \textbf{Agentes generativos:} produzem artefactos ou experiências além de uma resposta única (histórias, cenas, personagens orientadas pelo diálogo, simulações sociais).
+	\item \textbf{Agentes de conhecimento e inferência lógica:} priorizam a correção sob restrições explícitas, recuperando evidências, aplicando regras e produzindo traços auditáveis.
+	\item \textbf{Agentes LLM/VLM:} têm a capacidade dirigida principalmente pelo backbone do próprio modelo LLM/VLM utilizado.
+\end{itemize}
+
+
+
+\subsection{Padrões de arquitetura}
+No documento \textit{Building Effective AI Agents: Architecture Patterns and Implementation Frameworks} [mx - Anthropic Doc], a Anthropic apresenta alguns casos de utilização e padrões de arquitetura de agentes. 
+
+No \textit{Single Agent}, um agente percebe o ambiente, decide os próximos passos e age para atingir um objetivo, tudo isto em \textit{loop}. Esta abordagem revelou-se boa para resolver problemas gerais num domínio específico; porém não garante uma precisão de 100\% na primeira resposta.
+
+No \textit{Multi-Agents}, é apresentado um padrão que permite coordenar vários agentes especializados para resolver problemas complexos. Comparativamente ao padrão \textit{Single Agent}, este consome mais \textit{tokens}.
+
+Este padrão pode seguir duas abordagens: \textbf{Hierárquica/Supervisora} e \textbf{Colaborativa}. Na primeira, existe um agente "supervisor" que delega as tarefas a subagentes especializados. Porém, apresenta-se a necessidade de gerir o contexto, porque o supervisor pode ficar sobrecarregado. Já na segunda abordagem, existem vários agentes autónomos que falam entre si, negociam papéis a desempenhar e colaboram sem a necessidade de um supervisor. Contudo, podem surgir problemas na comunicação, o que pode levar a comportamentos imprevisíveis.
+
+O terceiro padrão, \textit{Agentes de Fluxo de Trabalho} refere-se as estruturas pré-definidas que orquestram como os agentes operam, comunicam e transferem tarefas entre si. Estão estruturas podem pertencer a um de três tipos: \textbf{Sequencial}, \textbf{Avaliador-Otimizador} ou \textbf{Paralelo}. No primeiro tipo, as tarefas são feitas numa ordem pré-definida, onde cada agente na sequência faz o seu trabalho e passa o resultado para o seguinte na linha. No segundo tipo, tem-se um agente que gera conteúdo e um outro que o avalia e dá \textit{feedback}. Este ciclo repete-se até que a qualidade desejado seja atingida.
+
+Já no último tipo deste padrão apresentado pela Anthropic, encontram-se vários agentes a executarem tarefas de forma independente e simultaneamente. Os resultados produzidos por cada agente são agregados ou sintetizados no final.
+
+\subsection{\textit{Model Protocol Context}}
+\label{sec:mcp_arc}
