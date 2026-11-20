@@ -5,8 +5,8 @@
 <p align="center">
   <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.12%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"></a>
   <img src="https://img.shields.io/badge/LangChain-Framework-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain">
-  <img src="https://img.shields.io/badge/LangGraph-Orchestration-FF6F61?style=for-the-badge" alt="LangGraph">
-  <img src="https://img.shields.io/badge/MCP-Model%20Context%20Protocol-6E4AFF?style=for-the-badge" alt="MCP">
+  <img src="https://img.shields.io/badge/LangGraph-Orchestration-FF6F61?style=for-the-badge&logo=langgraph&logoColor=white" alt="LangGraph">
+  <img src="https://img.shields.io/badge/MCP-Model%20Context%20Protocol-6E4AFF?style=for-the-badge&logo=mcp&logoColor=white" alt="MCP">
   <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
   <img src="https://img.shields.io/badge/Ollama-Local%20LLMs-000000?style=for-the-badge&logo=ollama&logoColor=white" alt="Ollama">
   <img src="https://img.shields.io/badge/Status-In%20Development-orange?style=for-the-badge" alt="Status">
@@ -20,12 +20,15 @@
 - [Instalação](#instalacao)
 - [Módulos e Componentes](#modulos-e-componentes)
 - [Como Utilizar](#como-utilizar)
+- [Relatório](#relatorio)
 
 ---
 <a id="estrutura-do-projeto"></a>
 ##  Estrutura do Projeto
 
+
 ```
+
 .
 ├── 01_Analise/
 │   └── spikes/
@@ -62,6 +65,7 @@
 │
 ├── install_req.bat                       # Batch para instalar requirements.txt
 └── requirements.txt                      # Dependências Python
+
 ```
 
 ---
@@ -71,22 +75,27 @@
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/mikos2004/TFM_MEIM_50746.git
+git clone [https://github.com/mikos2004/TFM_MEIM_50746.git](https://github.com/mikos2004/TFM_MEIM_50746.git)
 cd TFM_MEIM_50746
+
 ```
 
 ### 2. Criar e ativar um ambiente virtual (recomendado)
 
 **Windows:**
+
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
+
 ```
 
 **Linux/macOS:**
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+
 ```
 
 ### 3. Instalar as dependências
@@ -95,6 +104,7 @@ source .venv/bin/activate
 
 ```bash
 install_req.bat
+
 ```
 
 > **Nota:** Deve editar o nome do ambiente virtual, conforme indicado no ficheiro
@@ -103,6 +113,7 @@ install_req.bat
 
 ```bash
 pip install -r requirements.txt
+
 ```
 
 ### 4. Configurar variáveis de ambiente e modelos locais
@@ -112,12 +123,14 @@ Cria um ficheiro `.env` na raiz com as chaves e modelos necessáriao:
 ```env
 OLLAMA_MODEL = "qwen3:4b-instruct"
 EMB_MODEL = "snowflake-arctic-embed2"
+
 ```
 
 Corra o ficheiro `install_local_mod.bat` para instalar os modelos usados do Ollama:
 
 ```bash
 install_local_mod.bat
+
 ```
 
 Em alternativa faça manualmente:
@@ -125,18 +138,19 @@ Em alternativa faça manualmente:
 ```bash
 ollama pull qwen3:4b-instruct
 ollama pull snowflake-arctic-embed2
+
 ```
 
 ---
-<a id="modulos-e-componentes"></a>
-##  Módulos e Componentes
 
-###  `eval/` — Avaliação de Consistência
+## Módulos e Componentes
+
+### `eval/` — Avaliação de Consistência
 
 Spikes dedicados a medir similaridade e consistência entre textos e embeddings.
 
 | Ficheiro | Descrição |
-|---|---|
+| --- | --- |
 | `bwd.py` | Word Mover's Distance para frases predefinidas |
 | `bwd_txt.py` | Word Mover's Distance para ficheiros de texto |
 | `bwd_txt_TFIDF.py` | WMD com filtragem por IDF |
@@ -144,10 +158,10 @@ Spikes dedicados a medir similaridade e consistência entre textos e embeddings.
 | `samples/` | Textos TXT usados como input |
 | `aux_fold/` | Cache de embeddings descarregados |
 
-###  `langchain/` — Agentes com LangChain
+### `langchain/` — Agentes com LangChain
 
 | Ficheiro | Descrição |
-|---|---|
+| --- | --- |
 | `simple_agent.py` | Agente básico com ferramenta de meteorologia |
 | `context_agent.py` | Agente contextualizado pela cidade do utilizador |
 | `strem_agent.py` | Agente com respostas em modo *stream* |
@@ -155,15 +169,17 @@ Spikes dedicados a medir similaridade e consistência entre textos e embeddings.
 | `agente_prj/agente_db.py` | Agente que consulta uma BD (`db.json`) |
 | `agente_prj/agente_doc.py` | Agente que gera documento com base na BD |
 
-###  `langgraph/` — Orquestração com LangGraph
+### `langgraph/` — Orquestração com LangGraph
 
-- `main.py`: agente em grafo que:
-  - Responde com base num contexto,
-  - Consulta uma base de dados,
-  - Classifica o prompt recebido.
-- `graph.png`: representação visual do grafo.
+* `main.py`: agente em grafo que:
+* Responde com base num contexto,
+* Consulta uma base de dados,
+* Classifica o prompt recebido.
 
-###  `mcp/` — Model Context Protocol
+
+* `graph.png`: representação visual do grafo.
+
+### `mcp/` — Model Context Protocol
 
 Quatro cenários de integração com MCP:
 
@@ -173,22 +189,23 @@ Quatro cenários de integração com MCP:
 4. **Scenario 4** — Cliente HTTP com conhecimento de uma base de dados.
 
 Ficheiros auxiliares:
-- `aux_cmd.txt` — comandos úteis para correr os servidores MCP.
-- `client_http.py` — exemplo de cliente HTTP.
+
+* `aux_cmd.txt` — comandos úteis para correr os servidores MCP.
+* `client_http.py` — exemplo de cliente HTTP.
 
 ---
-<a id="como-utilizar"></a>
-##  Como Utilizar
+
+## Como Utilizar
 
 > **Nota:** Ao correr algum script que recorra a um modelo **Ollama** deve verificar de que tem o Ollama a correr.
-> 
-> Verifique que tem os modelos corretos descarregados no Ollama e que estão presentes no ficheiro ``.env``, cujos nomes estão no **ponto 4 da Instalação**.
+> Verifique que tem os modelos corretos descarregados no Ollama e que estão presentes no ficheiro `.env`, cujos nomes estão no **ponto 4 da Instalação**.
 
 ### Executar um spike de avaliação
 
 ```bash
 cd 01_Analise/spikes/eval
 python bwd_txt.py
+
 ```
 
 ### Executar um agente LangChain
@@ -196,6 +213,7 @@ python bwd_txt.py
 ```bash
 cd 01_Analise/spikes/langchain
 python simple_agent.py
+
 ```
 
 ### Executar o grafo LangGraph
@@ -203,6 +221,7 @@ python simple_agent.py
 ```bash
 cd 01_Analise/spikes/langgraph
 python main.py
+
 ```
 
 ### Executar um cenário MCP
@@ -212,8 +231,47 @@ Exemplo (Scenario 1 — STDIO):
 ```bash
 cd 01_Analise/spikes/mcp/scenario1
 python <servidor>.py
+
 ```
 
 Consulta `aux_cmd.txt` para comandos específicos de cada cenário.
 
+Aqui tens a secção **Relatório** atualizada de acordo com as instruções de compilação do template (`LuaLaTeX`, `template.pdf`, modo *draft* em `_memoir.tex` e atalhos do `Makefile`), pronta a inserir no `README.md` (mantendo toda a estrutura existente do repositório):
+
 ---
+<a id="relatorio"></a>
+##  Relatório
+
+O relatório é desenvolvido em LaTeX com base no template [iselthesis](https://github.com/matpato/iselthesis).
+
+### Como Compilar
+
+No seu editor, basta compilar selecionando **LuaLaTeX** como motor. A partir da linha de comandos:
+
+```bash
+latexmk -lualatex template
+
+```
+
+Ou manualmente:
+
+```bash
+lualatex template
+bibtex   template
+lualatex template
+lualatex template
+
+```
+
+O ficheiro gerado é `template.pdf`. Como os metadados do PDF são escritos numa execução e incluídos na seguinte, convém compilar sempre pelo menos duas vezes.
+
+**Modo rascunho (`draft`):** definir `draft` em `_memoir.tex` acelera a escrita: a primeira página surge como uma *checklist*, as imagens no texto são substituídas por caixas, a segunda capa é omitida e as linhas com excesso de largura (*overfull*) são assinaladas com barras pretas.
+
+Em Linux/macOS, o `Makefile` disponibiliza atalhos úteis:
+
+| Comando | Ação |
+| --- | --- |
+| `make` | Compila o PDF |
+| `make clean` | Remove ficheiros temporários |
+| `make tar` / `make zip` | Empacota os ficheiros fonte |
+| `make v` / `make view` | Abre o PDF |
