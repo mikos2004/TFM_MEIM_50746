@@ -64,7 +64,7 @@ Primeiro dá-se a \textbf{fase de observação} com a recolha de informação do
 Neste contexto, o autor coloca o agente como um \textit{budgeted controller} e ciente do risco: ações de baixo risco correm com quase nenhuma intervenção, enquanto ações de alto impacto exigem verificação adicional ou confirmação humana [mx - art. 29].
 
 %%%%%%%%%%%%%%%%
-%% TAXONOMIA ART. 22 / ART . 23)
+%% TAXONOMIA ART . 23)
 %%%%%%%%%%%%%%%
 
 No mesmo artigo [mx - art. 29], o autor apresenta uma taxonomia que se aplica ao \textbf{domínio e aplicação}. Esta categorização organiza os agentes pelo \emph{tipo de tarefa e de ambiente} que enfrentam e leva em conta três eixos: (i) o \textbf{foco dominante da interação} (texto/ferramentas, incorporação física, ambientes simulados), (ii) o \textbf{alvo generativo} (conteúdo, mundos, experiências) e (iii) o \textbf{substrato de raciocínio} (conhecimento, lógica, emoção, estrutura neuro-simbólica). A partir destes eixos, surgem seis categorias: \textbf{agentes generalistas}, \textbf{agentes incorporados}, \textbf{agentes de simulação e ambientes}, \textbf{agentes generativos}, \textbf{agentes de conhecimento e inferência lógica}, e \textbf{agentes LLM/VLM}. O autor caracteriza esta taxonomia como \textit{pragmática}, pois pretende refletir as restrições que mais condicionam o design como a observabilidade, segurança, latência, verificação e avaliação. [mx - art. 29]
@@ -80,19 +80,6 @@ No mesmo artigo [mx - art. 29], o autor apresenta uma taxonomia que se aplica ao
 
 
 
-\subsection{Padrões de arquitetura}
-No documento \textit{Building Effective AI Agents: Architecture Patterns and Implementation Frameworks} [mx - Anthropic Doc], a Anthropic apresenta alguns casos de utilização e padrões de arquitetura de agentes. 
-
-No \textit{Single Agent}, um agente percebe o ambiente, decide os próximos passos e age para atingir um objetivo, tudo isto em \textit{loop}. Esta abordagem revelou-se boa para resolver problemas gerais num domínio específico; porém não garante uma precisão de 100\% na primeira resposta.
-
-No \textit{Multi-Agents}, é apresentado um padrão que permite coordenar vários agentes especializados para resolver problemas complexos. Comparativamente ao padrão \textit{Single Agent}, este consome mais \textit{tokens}.
-
-Este padrão pode seguir duas abordagens: \textbf{Hierárquica/Supervisora} e \textbf{Colaborativa}. Na primeira, existe um agente "supervisor" que delega as tarefas a subagentes especializados. Porém, apresenta-se a necessidade de gerir o contexto, porque o supervisor pode ficar sobrecarregado. Já na segunda abordagem, existem vários agentes autónomos que falam entre si, negociam papéis a desempenhar e colaboram sem a necessidade de um supervisor. Contudo, podem surgir problemas na comunicação, o que pode levar a comportamentos imprevisíveis.
-
-O terceiro padrão, \textit{Agentes de Fluxo de Trabalho} refere-se as estruturas pré-definidas que orquestram como os agentes operam, comunicam e transferem tarefas entre si. Estão estruturas podem pertencer a um de três tipos: \textbf{Sequencial}, \textbf{Avaliador-Otimizador} ou \textbf{Paralelo}. No primeiro tipo, as tarefas são feitas numa ordem pré-definida, onde cada agente na sequência faz o seu trabalho e passa o resultado para o seguinte na linha. No segundo tipo, tem-se um agente que gera conteúdo e um outro que o avalia e dá \textit{feedback}. Este ciclo repete-se até que a qualidade desejado seja atingida.
-
-Já no último tipo deste padrão apresentado pela Anthropic, encontram-se vários agentes a executarem tarefas de forma independente e simultaneamente. Os resultados produzidos por cada agente são agregados ou sintetizados no final.
-
 Em 2024, um grupo de investigadores propôs uma taxonomia com cinco grandes categorias para classificar os vários métodos que recorrem a LLM como módulos de planeamento. [mx - art. 22].
 
 As categorias propostas são: \textbf{Decomposição de Tarefas}, \textbf{Seleção Multi-plano}, \textbf{Planeamento Auxiliado por Planeador Externo}, \textbf{Reflexão e Refinamento} e \textbf{Planejamento Aumentado por Memória}.
@@ -106,6 +93,21 @@ No Planeamento Auxiliado por Planeador Externo o LLM é usado sobretudo para for
 A Reflexão e Refinamento é uma categoria que enfatiza a melhoria iterativa do plano através de ciclos de geração com \textit{feedback}, reflexão e refinamento. O agente analisa falhas ou o \textit{feedback} do ambiente, gera reflexões em linguagem natural e ajusta o plano em tentativas posteriores, o que aumenta a tolerância a erros e ajuda a evitar ciclos de pensamento.
 
 Por último, na categoria de Planeamento Aumentado por Memória enriquece-se o planeamento com um módulo de memória que guarda conhecimento, experiências passadas ou informação específica do domínio e que recupera a relevante no momento do planeamento. A memória pode assumir a forma de RAG, com armazenamento externo e recuperação por similaridade, ou de memória incorporada, através de \textit{fine-tuning} do LLM com amostras experimentais do agente.
+
+Em outubro 2026, outro grupo de investigadores propôs outra taxonomia, com foco em categorizar e analisar as estruturas de raciocínio baseadas em LLM, agentes de Inteligência Artificial. [mx - 23]
+
+\subsection{Padrões de arquitetura}
+No documento \textit{Building Effective AI Agents: Architecture Patterns and Implementation Frameworks} [mx - Anthropic Doc], a Anthropic apresenta alguns casos de utilização e padrões de arquitetura de agentes. 
+
+No \textit{Single Agent}, um agente percebe o ambiente, decide os próximos passos e age para atingir um objetivo, tudo isto em \textit{loop}. Esta abordagem revelou-se boa para resolver problemas gerais num domínio específico; porém não garante uma precisão de 100\% na primeira resposta.
+
+No \textit{Multi-Agents}, é apresentado um padrão que permite coordenar vários agentes especializados para resolver problemas complexos. Comparativamente ao padrão \textit{Single Agent}, este consome mais \textit{tokens}.
+
+Este padrão pode seguir duas abordagens: \textbf{Hierárquica/Supervisora} e \textbf{Colaborativa}. Na primeira, existe um agente "supervisor" que delega as tarefas a subagentes especializados. Porém, apresenta-se a necessidade de gerir o contexto, porque o supervisor pode ficar sobrecarregado. Já na segunda abordagem, existem vários agentes autónomos que falam entre si, negociam papéis a desempenhar e colaboram sem a necessidade de um supervisor. Contudo, podem surgir problemas na comunicação, o que pode levar a comportamentos imprevisíveis.
+
+O terceiro padrão, \textit{Agentes de Fluxo de Trabalho} refere-se as estruturas pré-definidas que orquestram como os agentes operam, comunicam e transferem tarefas entre si. Estão estruturas podem pertencer a um de três tipos: \textbf{Sequencial}, \textbf{Avaliador-Otimizador} ou \textbf{Paralelo}. No primeiro tipo, as tarefas são feitas numa ordem pré-definida, onde cada agente na sequência faz o seu trabalho e passa o resultado para o seguinte na linha. No segundo tipo, tem-se um agente que gera conteúdo e um outro que o avalia e dá \textit{feedback}. Este ciclo repete-se até que a qualidade desejado seja atingida.
+
+Já no último tipo deste padrão apresentado pela Anthropic, encontram-se vários agentes a executarem tarefas de forma independente e simultaneamente. Os resultados produzidos por cada agente são agregados ou sintetizados no final
 
 \subsection{\textit{Model Protocol Context}}
 \label{sec:mcp_arc}
