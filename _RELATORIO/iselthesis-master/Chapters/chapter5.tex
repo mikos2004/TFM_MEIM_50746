@@ -50,7 +50,7 @@ Deste modo, no começo de 2026, Bin Xu propõe uma definição formal de \textit
 	\mathcal{A} = (\pi_{\theta}, \mathcal{M}, \mathcal{T}, \mathcal{V}, \mathcal{E}),
 	\label{eq:agent_transformer}
 \end{equation}
-em que \(\pi_{\theta}\) representa a política \textit{transformer} (LLM/VLM), \(\mathcal{M}\) a memória, \(\mathcal{T}\) o conjunto de ferramentas, \(\mathcal{V}\) os verificadores/críticos e \(\mathcal{E}\) o ambiente [mx - art. 29]. Esta formalização é acompanhada de um \textit{loop} de execução explícito. 
+em que \(\pi_{\theta}\) representa a  \textit{transformer} (LLM/VLM), \(\mathcal{M}\) a memória, \(\mathcal{T}\) o conjunto de ferramentas, \(\mathcal{V}\) os verificadores/críticos e \(\mathcal{E}\) o ambiente [mx - art. 29]. Esta formalização é acompanhada de um \textit{loop} de execução explícito. 
 
 Primeiro dá-se a \textbf{fase de observação} com a recolha de informação do ambiente. Depois a seguem-se a fase de \textbf{recuperação de memória relevante}, a de \textbf{proposta de ação} que recorre à política \(\pi_{\theta}\) condicionada pela observação e memória recuperada. Por fim, dá-se a \textbf{fase de validação} com \(\mathcal{V}\), a de \textbf{execução} que executa a ferramenta escolhida pela ação, que acaba no final por atualizar o ambiente e a memória. Este loop é apresentado nas seguintes equações?
 
@@ -92,6 +92,20 @@ Este padrão pode seguir duas abordagens: \textbf{Hierárquica/Supervisora} e \t
 O terceiro padrão, \textit{Agentes de Fluxo de Trabalho} refere-se as estruturas pré-definidas que orquestram como os agentes operam, comunicam e transferem tarefas entre si. Estão estruturas podem pertencer a um de três tipos: \textbf{Sequencial}, \textbf{Avaliador-Otimizador} ou \textbf{Paralelo}. No primeiro tipo, as tarefas são feitas numa ordem pré-definida, onde cada agente na sequência faz o seu trabalho e passa o resultado para o seguinte na linha. No segundo tipo, tem-se um agente que gera conteúdo e um outro que o avalia e dá \textit{feedback}. Este ciclo repete-se até que a qualidade desejado seja atingida.
 
 Já no último tipo deste padrão apresentado pela Anthropic, encontram-se vários agentes a executarem tarefas de forma independente e simultaneamente. Os resultados produzidos por cada agente são agregados ou sintetizados no final.
+
+Em 2024, um grupo de investigadores propôs uma taxonomia com cinco grandes categorias para classificar os vários métodos que recorrem a LLM como módulos de planeamento. [mx - art. 22].
+
+As categorias propostas são: \textbf{Decomposição de Tarefas}, \textbf{Seleção Multi-plano}, \textbf{Planeamento Auxiliado por Planeador Externo}, \textbf{Reflexão e Refinamento} e \textbf{Planejamento Aumentado por Memória}.
+
+Na Decomposição de Tarefas, os autores apresentam a filosofia de \textit{dividir para conquistar} como ideia principal ao decompor uma tarefa complexa em subtarefas mais simples e planeá-las sequencialmente. Os métodos para esta decomposição podem ser do tipo \emph{decomposition-first}, no qual o processo ocorre antes do planeamento das subtarefas, ou \emph{interleaved}, onde a decomposição e o planeamento das subtarefas são intercalados.
+
+Na categoria de Seleção Multi-plano procura-se compensar a incerteza e a possível falta de otimização de um único plano gerado pelo LLM, ao gerar vários planos candidatos e, no fim, selecionar o mais adequado. A geração pode recorrer a amostragem ou a mecanismos de proposta explícita, enquanto a seleção utiliza estratégias como votação maioritária, procura em árvore ou A*.
+
+No Planeamento Auxiliado por Planeador Externo o LLM é usado sobretudo para formalizar a tarefa e o ambiente, depois delega a geração do plano num planeador externo, que pode ser simbólico, como PDDL, ASP ou Fast-Downward, ou neuronal, como modelos treinados com aprendizagem por reforço ou \textit{imitation learning}. O objetivo é tirar partido da estabilidade e interpretabilidade dos planeadores externos para lidar com restrições complexas e melhorar a eficiência e viabilidade dos planos. O \textbf{LLLM+P} encontra-se entre os inclui o \textbf{LLM+P}.
+
+A Reflexão e Refinamento é uma categoria que enfatiza a melhoria iterativa do plano através de ciclos de geração com \textit{feedback}, reflexão e refinamento. O agente analisa falhas ou o \textit{feedback} do ambiente, gera reflexões em linguagem natural e ajusta o plano em tentativas posteriores, o que aumenta a tolerância a erros e ajuda a evitar ciclos de pensamento.
+
+Por último, na categoria de Planeamento Aumentado por Memória enriquece-se o planeamento com um módulo de memória que guarda conhecimento, experiências passadas ou informação específica do domínio e que recupera a relevante no momento do planeamento. A memória pode assumir a forma de RAG, com armazenamento externo e recuperação por similaridade, ou de memória incorporada, através de \textit{fine-tuning} do LLM com amostras experimentais do agente.
 
 \subsection{\textit{Model Protocol Context}}
 \label{sec:mcp_arc}
