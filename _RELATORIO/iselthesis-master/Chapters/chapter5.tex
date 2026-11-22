@@ -64,7 +64,7 @@ Primeiro dá-se a \textbf{fase de observação} com a recolha de informação do
 Neste contexto, o autor coloca o agente como um \textit{budgeted controller} e ciente do risco: ações de baixo risco correm com quase nenhuma intervenção, enquanto ações de alto impacto exigem verificação adicional ou confirmação humana [mx - art. 29].
 
 %%%%%%%%%%%%%%%%
-%% TAXONOMIA ART . 23)
+%% TAXONOMIA
 %%%%%%%%%%%%%%%
 
 No mesmo artigo [mx - art. 29], o autor apresenta uma taxonomia que se aplica ao \textbf{domínio e aplicação}. Esta categorização organiza os agentes pelo \emph{tipo de tarefa e de ambiente} que enfrentam e leva em conta três eixos: (i) o \textbf{foco dominante da interação} (texto/ferramentas, incorporação física, ambientes simulados), (ii) o \textbf{alvo generativo} (conteúdo, mundos, experiências) e (iii) o \textbf{substrato de raciocínio} (conhecimento, lógica, emoção, estrutura neuro-simbólica). A partir destes eixos, surgem seis categorias: \textbf{agentes generalistas}, \textbf{agentes incorporados}, \textbf{agentes de simulação e ambientes}, \textbf{agentes generativos}, \textbf{agentes de conhecimento e inferência lógica}, e \textbf{agentes LLM/VLM}. O autor caracteriza esta taxonomia como \textit{pragmática}, pois pretende refletir as restrições que mais condicionam o design como a observabilidade, segurança, latência, verificação e avaliação. [mx - art. 29]
@@ -77,8 +77,6 @@ No mesmo artigo [mx - art. 29], o autor apresenta uma taxonomia que se aplica ao
 	\item \textbf{Agentes de conhecimento e inferência lógica:} priorizam a correção sob restrições explícitas, recuperando evidências, aplicando regras e produzindo traços auditáveis.
 	\item \textbf{Agentes LLM/VLM:} têm a capacidade dirigida principalmente pelo backbone do próprio modelo LLM/VLM utilizado.
 \end{itemize}
-
-
 
 Em 2024, um grupo de investigadores propôs uma taxonomia com cinco grandes categorias para classificar os vários métodos que recorrem a LLM como módulos de planeamento. [mx - art. 22].
 
@@ -96,6 +94,18 @@ Por último, na categoria de Planeamento Aumentado por Memória enriquece-se o p
 
 Em outubro 2026, outro grupo de investigadores propôs outra taxonomia, com foco em categorizar e analisar as estruturas de raciocínio baseadas em LLM, agentes de Inteligência Artificial. [mx - 23]
 
+No artigo, as três categorias apresentadas são:
+
+\begin{itemize}
+	\item \textbf{Métodos de Agente Único (\textit{Single-agent}):} Melhoram as capacidades cognitivas e de decisão de um agente individual. Existem duas abordagens: a \textbf{Engenharia de Prompt}, que enriquece o contexto inicial através da atribuição de papéis (\textit{role-playing}), simulação de ambiente, descrição detalhada da tarefa e aprendizagem contextualizada (\textit{in-context learning}); e o \textbf{Auto-aperfeiçoamento}, onde o agente melhora as suas estratégias através de mecanismos de reflexão pós-ação, otimização iterativa (refina a resposta até atingir um padrão) e aprendizagem interativa com o ambiente.
+	
+	\item \textbf{Métodos Baseados em Ferramentas (\textit{Tool-based}):} Expandem os limites do agente através da integração de recursos externos. Este nível divide o uso de ferramentas em três estágios: a \textbf{Integração} (via APIs, \textit{plugins} executados no ambiente do agente ou \textit{middleware}), a \textbf{Seleção} (escolha autónoma ou baseada em regras da ferramenta mais adequada) e a \textbf{Utilização} (operação sequencial, paralela ou iterativa da ferramenta).
+	
+	\item \textbf{Métodos Multi-agente (\textit{Multi-agent}):} Permitem um raciocínio mais flexível através de diferentes paradigmas de organização (centralizada, descentralizada ou hierárquica) e de interação (cooperação, competição ou negociação) entre vários agentes.
+\end{itemize}
+
+Para além desta classificação, os autores introduzem uma linguagem formal e um algoritmo geral para descrever o processo de raciocínio passo a passo. Nesta formalização, um passo é definido como $y = a(C)$ (onde uma ação $a$ é executada sobre um contexto $C$ para gerar uma saída $y$), distinguindo desta forma as ações de gerar resposta ($a$) das que atualização de contexto ($a'$). [mx - art. 23]
+
 \subsection{Padrões de arquitetura}
 No documento \textit{Building Effective AI Agents: Architecture Patterns and Implementation Frameworks} [mx - Anthropic Doc], a Anthropic apresenta alguns casos de utilização e padrões de arquitetura de agentes. 
 
@@ -109,5 +119,13 @@ O terceiro padrão, \textit{Agentes de Fluxo de Trabalho} refere-se as estrutura
 
 Já no último tipo deste padrão apresentado pela Anthropic, encontram-se vários agentes a executarem tarefas de forma independente e simultaneamente. Os resultados produzidos por cada agente são agregados ou sintetizados no final
 
+%%%%%%%%%%%%%%%%
+%% ARTIGO 30 - INTRO. AQUI
+%%%%%%%%%%%%%%%
+
 \subsection{\textit{Model Protocol Context}}
 \label{sec:mcp_arc}
+
+%%%%%%%%%%%%%%%%
+%% ARTIGO 31, 32 - INTRO. AQUI
+%%%%%%%%%%%%%%%
