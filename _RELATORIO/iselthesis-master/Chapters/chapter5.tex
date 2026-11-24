@@ -134,10 +134,8 @@ A solução apresentada no artigo para resolver esse problema é recorrer à uti
 
 No processo de estudo, o modelo escolhido foi o \textbf{Qwen-7B} que foi escolhido por ter suporte nativo ao chinês tradicional. A experiência no artigo consistiu em integrar este SLM com recursos externos através do MCP, como \textit{prompts} em chinês tradicional, ferramentas para consultas SQL 2019, transformação de dados e recuperação de documentos, bem como o encapsulamento de um SQL Server e de dados industriais como recursos MCP.  Para testar o efeito da integração, comparou-se o comportamento do Qwen-7B antes e depois do MCP com o pedido \emph{“Query all columns of CD1”:} antes, o modelo apenas produzia uma explicação semântica e pedia mais contexto sobre a origem dos dados. Depois, o sistema acionou o mecanismo de coordenação do MCP, o modelo gerou automaticamente uma consulta SQL, executou-a através de uma ferramenta e retornou resultados da base de dados (37 colunas com os respetivos nomes e tipos de dados) na resposta final ao utilizador, registando ainda a chamada da ferramenta em formato JSON para garantir transparência e reprodutibilidade.
 
-
-
-
+Desta forma, o artigo conclui que a utilização da junção de SLM com MCP provou-se eficaz com o modelo a gerar e executar autonomamente comandos de consulta à base de dados a partir de pedidos em linguagem natural, realizando a recuperação e integração dos dados.~\cite{hu2026applying}
 
 %%%%%%%%%%%%%%%%
-%% ARTIGO 31, 32 - INTRO. AQUI
+%% ARTIGO 32 - INTRO. AQUI
 %%%%%%%%%%%%%%%
