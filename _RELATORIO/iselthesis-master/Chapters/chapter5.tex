@@ -16,7 +16,7 @@ Em seguida, aprofundar-se-á o estudo sobre o uso de inteligência artificial no
 
 Desde do momento do lançamento do ChatGPT, em novembro de 2022, que todas as pessoas, empresas e entidades tentam encontrar a melhor forma de integrar esta ferramenta no seu dia-a-dia.
 
-Segundo o livro \textit{Unlocking Artificial Intelligence: From Theory to Applications} [mx - unlock AI], os autores apresentam alguns sistemas que usam Inteligência Artificial, 
+Segundo o livro \textit{Unlocking Artificial Intelligence: From Theory to Applications}~\cite{Mutschler2024-tn}, os autores apresentam alguns sistemas que usam Inteligência Artificial, 
 
 Um outro contexto que encontrou na inteligência artificial um bom aliado é o policial. Existem vários processos que podem ter automatizados e novas abordagens que se tornam possíveis com este tipo de tecnologia a integrar o quotidiano das investigação.
 
@@ -26,9 +26,9 @@ Um outro contexto que encontrou na inteligência artificial um bom aliado é o p
 \section{Planeamento Automático}
 \label{sec:plan_auto}
 
-Um agente de planeamento tem a seu cargo a tarefa de definir uma sequência de ações que permita atingir um objetivo. [mx - IASA Livro].
+Um agente de planeamento tem a seu cargo a tarefa de definir uma sequência de ações que permita atingir um objetivo~\cite{Russell1998-hm}.
 
-O planeamento, segundo [mx - autores APL] [mx - APL] envolve a escolha e organização de ações que permitam realizar uma tarefa ou atingir um determinado objetivo. Esta atividade implica, por norma, recorrer a modelos abstratos de uma lista de ações que o agente pode realizar.
+O planeamento, segundo Ghallab, Nau e Traverso~\cite{Ghallab2025-da} envolve a escolha e organização de ações que permitam realizar uma tarefa ou atingir um determinado objetivo. Esta atividade implica, por norma, recorrer a modelos abstratos de uma lista de ações que o agente pode realizar.
 
 \section{LLM e planeamento} %% 
 \label{sec:llm_plan}
@@ -37,20 +37,20 @@ O planeamento, segundo [mx - autores APL] [mx - APL] envolve a escolha e organiz
 \label{sec:agentes_arq}
 
 Os modelos de base como os LLM, sozinhos não são capazes de resolver sozinhas problemas mais complexos, que envolvem a recolha de informação de diversas fontes, a escolha entre ferramentas e a execução de ações em várias etapas
-sob restrições, como latência, permissões, segurança e custo, entre fatores. [mx - art. 29]
+sob restrições, como latência, permissões, segurança e custo, entre fatores.~\cite{xu2026ai}
 
-Para preencher esta lacuna, existem os agentes de inteligência artificial, que são capazes de captar o estado do ambiente, traçar um plano, aceder a ferramentas, atualizar a memória e verificar os resultados. [mx - art. 29]
+Para preencher esta lacuna, existem os agentes de inteligência artificial, que são capazes de captar o estado do ambiente, traçar um plano, aceder a ferramentas, atualizar a memória e verificar os resultados.~\cite{xu2026ai}
 
 \subsection{Conceito de agente e taxonomias}
 
-Os agentes de inteligência artificial são sistemas que combinam modelos de base com raciocínio, planeamento, memória e utilização de ferramentas. [mx - art. 29]. O desenvolvimento de agentes acelerou bastante depois da OpenAI disponibilizar a API para \textit{function-calling}, no final de 2023. [mx - IBM]
+Os agentes de inteligência artificial são sistemas que combinam modelos de base com raciocínio, planeamento, memória e utilização de ferramentas.~\cite{xu2026ai}. O desenvolvimento de agentes acelerou bastante depois da OpenAI disponibilizar a API para \textit{function-calling}, no final de 2023.~\cite{ibmEvolutionAgents}
 
 Deste modo, no começo de 2026, Bin Xu propõe uma definição formal de \textit{agent transformer}, nome a que o autor atribui a uma abstração de um agente genérico, que procura unificar a terminologia dispersa na literatura: um agente é descrito como um tuplo
 \begin{equation}
 	\mathcal{A} = (\pi_{\theta}, \mathcal{M}, \mathcal{T}, \mathcal{V}, \mathcal{E}),
 	\label{eq:agent_transformer}
 \end{equation}
-em que \(\pi_{\theta}\) representa a  \textit{transformer} (LLM/VLM), \(\mathcal{M}\) a memória, \(\mathcal{T}\) o conjunto de ferramentas, \(\mathcal{V}\) os verificadores/críticos e \(\mathcal{E}\) o ambiente [mx - art. 29]. Esta formalização é acompanhada de um \textit{loop} de execução explícito. 
+em que \(\pi_{\theta}\) representa a  \textit{transformer} (LLM/VLM), \(\mathcal{M}\) a memória, \(\mathcal{T}\) o conjunto de ferramentas, \(\mathcal{V}\) os verificadores/críticos e \(\mathcal{E}\) o ambiente~\cite{xu2026ai}. Esta formalização é acompanhada de um \textit{loop} de execução explícito. 
 
 Primeiro dá-se a \textbf{fase de observação} com a recolha de informação do ambiente. Depois a seguem-se a fase de \textbf{recuperação de memória relevante}, a de \textbf{proposta de ação} que recorre à política \(\pi_{\theta}\) condicionada pela observação e memória recuperada. Por fim, dá-se a \textbf{fase de validação} com \(\mathcal{V}\), a de \textbf{execução} que executa a ferramenta escolhida pela ação, que acaba no final por atualizar o ambiente e a memória. Este loop é apresentado nas seguintes equações?
 
@@ -61,13 +61,13 @@ Primeiro dá-se a \textbf{fase de observação} com a recolha de informação do
 	\mathcal{E}_{t+1} &\leftarrow \mathrm{Exec}(\mathcal{E}_t, \mathcal{T}, \hat{a}_t), \quad \mathcal{M}_{t+1} \leftarrow \mathrm{Update}(\mathcal{M}_t, o_t, \hat{a}_t, \mathcal{E}_{t+1}). \tag{4}
 \end{align}
 
-Neste contexto, o autor coloca o agente como um \textit{budgeted controller} e ciente do risco: ações de baixo risco correm com quase nenhuma intervenção, enquanto ações de alto impacto exigem verificação adicional ou confirmação humana [mx - art. 29].
+Neste contexto, o autor coloca o agente como um \textit{budgeted controller} e ciente do risco: ações de baixo risco correm com quase nenhuma intervenção, enquanto ações de alto impacto exigem verificação adicional ou confirmação humana~\cite{xu2026ai}.
 
 %%%%%%%%%%%%%%%%
 %% TAXONOMIA
 %%%%%%%%%%%%%%%
 
-No mesmo artigo [mx - art. 29], o autor apresenta uma taxonomia que se aplica ao \textbf{domínio e aplicação}. Esta categorização organiza os agentes pelo \emph{tipo de tarefa e de ambiente} que enfrentam e leva em conta três eixos: (i) o \textbf{foco dominante da interação} (texto/ferramentas, incorporação física, ambientes simulados), (ii) o \textbf{alvo generativo} (conteúdo, mundos, experiências) e (iii) o \textbf{substrato de raciocínio} (conhecimento, lógica, emoção, estrutura neuro-simbólica). A partir destes eixos, surgem seis categorias: \textbf{agentes generalistas}, \textbf{agentes incorporados}, \textbf{agentes de simulação e ambientes}, \textbf{agentes generativos}, \textbf{agentes de conhecimento e inferência lógica}, e \textbf{agentes LLM/VLM}. O autor caracteriza esta taxonomia como \textit{pragmática}, pois pretende refletir as restrições que mais condicionam o design como a observabilidade, segurança, latência, verificação e avaliação. [mx - art. 29]
+No mesmo artigo~\cite{xu2026ai}, o autor apresenta uma taxonomia que se aplica ao \textbf{domínio e aplicação}. Esta categorização organiza os agentes pelo \emph{tipo de tarefa e de ambiente} que enfrentam e leva em conta três eixos: (i) o \textbf{foco dominante da interação} (texto/ferramentas, incorporação física, ambientes simulados), (ii) o \textbf{alvo generativo} (conteúdo, mundos, experiências) e (iii) o \textbf{substrato de raciocínio} (conhecimento, lógica, emoção, estrutura neuro-simbólica). A partir destes eixos, surgem seis categorias: \textbf{agentes generalistas}, \textbf{agentes incorporados}, \textbf{agentes de simulação e ambientes}, \textbf{agentes generativos}, \textbf{agentes de conhecimento e inferência lógica}, e \textbf{agentes LLM/VLM}. O autor caracteriza esta taxonomia como \textit{pragmática}, pois pretende refletir as restrições que mais condicionam o design como a observabilidade, segurança, latência, verificação e avaliação.~\cite{xu2026ai}
 
 \begin{itemize}
 	\item \textbf{Agentes generalistas:} resolvem tarefas heterogéneas (código, navegação, análises, \textit{workflows} empresariais) com um núcleo de política partilhado, ferramentas modulares e memória.
@@ -78,7 +78,7 @@ No mesmo artigo [mx - art. 29], o autor apresenta uma taxonomia que se aplica ao
 	\item \textbf{Agentes LLM/VLM:} têm a capacidade dirigida principalmente pelo backbone do próprio modelo LLM/VLM utilizado.
 \end{itemize}
 
-Em 2024, um grupo de investigadores propôs uma taxonomia com cinco grandes categorias para classificar os vários métodos que recorrem a LLM como módulos de planeamento. [mx - art. 22].
+Em 2024, um grupo de investigadores propôs uma taxonomia com cinco grandes categorias para classificar os vários métodos que recorrem a LLM como módulos de planeamento.~\cite{huang2024understanding}.
 
 As categorias propostas são: \textbf{Decomposição de Tarefas}, \textbf{Seleção Multi-plano}, \textbf{Planeamento Auxiliado por Planeador Externo}, \textbf{Reflexão e Refinamento} e \textbf{Planejamento Aumentado por Memória}.
 
@@ -92,7 +92,7 @@ A Reflexão e Refinamento é uma categoria que enfatiza a melhoria iterativa do 
 
 Por último, na categoria de Planeamento Aumentado por Memória enriquece-se o planeamento com um módulo de memória que guarda conhecimento, experiências passadas ou informação específica do domínio e que recupera a relevante no momento do planeamento. A memória pode assumir a forma de RAG, com armazenamento externo e recuperação por similaridade, ou de memória incorporada, através de \textit{fine-tuning} do LLM com amostras experimentais do agente.
 
-Em outubro 2026, outro grupo de investigadores propôs outra taxonomia, com foco em categorizar e analisar as estruturas de raciocínio baseadas em LLM, agentes de Inteligência Artificial. [mx - 23]
+Em outubro 2026, outro grupo de investigadores propôs outra taxonomia, com foco em categorizar e analisar as estruturas de raciocínio baseadas em LLM, agentes de Inteligência Artificial.~\cite{zhao2025llm}
 
 No artigo, as três categorias apresentadas são:
 
@@ -104,10 +104,10 @@ No artigo, as três categorias apresentadas são:
 	\item \textbf{Métodos Multi-agente (\textit{Multi-agent}):} Permitem um raciocínio mais flexível através de diferentes paradigmas de organização (centralizada, descentralizada ou hierárquica) e de interação (cooperação, competição ou negociação) entre vários agentes.
 \end{itemize}
 
-Para além desta classificação, os autores introduzem uma linguagem formal e um algoritmo geral para descrever o processo de raciocínio passo a passo. Nesta formalização, um passo é definido como $y = a(C)$ (onde uma ação $a$ é executada sobre um contexto $C$ para gerar uma saída $y$), distinguindo desta forma as ações de gerar resposta ($a$) das que atualização de contexto ($a'$). [mx - art. 23]
+Para além desta classificação, os autores introduzem uma linguagem formal e um algoritmo geral para descrever o processo de raciocínio passo a passo. Nesta formalização, um passo é definido como $y = a(C)$ (onde uma ação $a$ é executada sobre um contexto $C$ para gerar uma saída $y$), distinguindo desta forma as ações de gerar resposta ($a$) das que atualização de contexto ($a'$).~\cite{zhao2025llm}
 
 \subsection{Padrões de arquitetura}
-No documento \textit{Building Effective AI Agents: Architecture Patterns and Implementation Frameworks} [mx - Anthropic Doc], a Anthropic apresenta alguns casos de utilização e padrões de arquitetura de agentes. 
+No documento \textit{Building Effective AI Agents: Architecture Patterns and Implementation Frameworks}~\cite{anthropic2025agents}, a Anthropic apresenta alguns casos de utilização e padrões de arquitetura de agentes. 
 
 No \textit{Single Agent}, um agente percebe o ambiente, decide os próximos passos e age para atingir um objetivo, tudo isto em \textit{loop}. Esta abordagem revelou-se boa para resolver problemas gerais num domínio específico; porém não garante uma precisão de 100\% na primeira resposta.
 
@@ -132,7 +132,9 @@ Em 2026, um grupo de investigadores, apontou limitações no uso de LLM na indú
 
 A solução apresentada no artigo para resolver esse problema é recorrer à utilização de MCP como um \textit{middleware} que permite a implementação de SLM (\textit{Small Languages Models}) localmente para processar os dados. O uso de MCP, procura compensar a limitação destes modelos mais pequenos no que toca a precisão e flexibilidade.
 
-No processo de estudo, o modelo escolhido foi o \textbf{Qwen-7B} que foi escolhido por ter suporte nativo ao chinês tradicional. A experiência no artigo consistiu em integrar este SLM com recursos externos através do MCP, como \textit{prompts} em chinês tradicional, ferramentas para consultas SQL 2019, transformação de dados e recuperação de documentos, bem como o encapsulamento de um SQL Server e de dados industriais como recursos MCP.  Para testar o efeito da integração, comparou-se o comportamento do Qwen-7B antes e depois do MCP com o pedido \emph{“Query all columns of CD1”:} antes, o modelo apenas produzia uma explicação semântica e pedia mais contexto sobre a origem dos dados. Depois, o sistema acionou o mecanismo de coordenação do MCP, o modelo gerou automaticamente uma consulta SQL, executou-a através de uma ferramenta e retornou resultados da base de dados (37 colunas com os respetivos nomes e tipos de dados) na resposta final ao utilizador, registando ainda a chamada da ferramenta em formato JSON para garantir transparência e reprodutibilidade.
+No processo de estudo, o modelo escolhido foi o \textbf{Qwen-7B} que foi escolhido por ter suporte nativo ao chinês tradicional. A experiência no artigo consistiu em integrar este SLM com recursos externos através do MCP, como \textit{prompts} em chinês tradicional, ferramentas para consultas SQL 2019, transformação de dados e recuperação de documentos, bem como o encapsulamento de um SQL Server e de dados industriais como recursos MCP.
+
+Para testar o efeito da integração, comparou-se o comportamento do Qwen-7B antes e depois do MCP com o pedido \emph{“Query all columns of CD1”:} antes, o modelo apenas produzia uma explicação semântica e pedia mais contexto sobre a origem dos dados. Depois, o sistema acionou o mecanismo de coordenação do MCP, o modelo gerou automaticamente uma consulta SQL, executou-a através de uma ferramenta e retornou resultados da base de dados (37 colunas com os respetivos nomes e tipos de dados) na resposta final ao utilizador, registando ainda a chamada da ferramenta em formato JSON para garantir transparência e reprodutibilidade.
 
 Desta forma, o artigo conclui que a utilização da junção de SLM com MCP provou-se eficaz com o modelo a gerar e executar autonomamente comandos de consulta à base de dados a partir de pedidos em linguagem natural, realizando a recuperação e integração dos dados.~\cite{hu2026applying}
 
