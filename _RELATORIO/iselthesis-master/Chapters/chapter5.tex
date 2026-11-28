@@ -52,7 +52,7 @@ Deste modo, no começo de 2026, Bin Xu propõe uma definição formal de \textit
 \end{equation}
 em que \(\pi_{\theta}\) representa a  \textit{transformer} (LLM/VLM), \(\mathcal{M}\) a memória, \(\mathcal{T}\) o conjunto de ferramentas, \(\mathcal{V}\) os verificadores/críticos e \(\mathcal{E}\) o ambiente~\cite{xu2026ai}. Esta formalização é acompanhada de um \textit{loop} de execução explícito. 
 
-Primeiro dá-se a \textbf{fase de observação} com a recolha de informação do ambiente. Depois a seguem-se a fase de \textbf{recuperação de memória relevante}, a de \textbf{proposta de ação} que recorre à política \(\pi_{\theta}\) condicionada pela observação e memória recuperada. Por fim, dá-se a \textbf{fase de validação} com \(\mathcal{V}\), a de \textbf{execução} que executa a ferramenta escolhida pela ação, que acaba no final por atualizar o ambiente e a memória. Este loop é apresentado nas seguintes equações?
+Primeiro dá-se a \textbf{fase de observação} com a recolha de informação do ambiente. Depois a seguem-se a fase de \textbf{recuperação de memória relevante}, a de \textbf{proposta de ação} que recorre à política \(\pi_{\theta}\) condicionada pela observação e memória recuperada. Por fim, dá-se a \textbf{fase de validação} com \(\mathcal{V}\), a de \textbf{execução} que executa a ferramenta escolhida pela ação, que acaba no final por atualizar o ambiente e a memória. Este \textit{loop} é apresentado nas seguintes equações?
 
 \begin{align}
 	\mathcal{A} &= (\pi_{\theta}, \mathcal{M}, \mathcal{T}, \mathcal{V}, \mathcal{E}), \tag{1} \\[4pt]
@@ -128,6 +128,10 @@ Já no último tipo deste padrão apresentado pela Anthropic, encontram-se vári
 
 No final de 2024, a Anthropic apresentou o \textit{Model Context Protocol} (MCP), uma \textit{framework} \textit{open-source} com o objetivo de padronizar a maneira com que os agentes integram e compartilham dados com ferramentas, sistemas e fontes de dados externas.
 
+%%%%%%%%%%%%%%%%%%%
+% mx - explicar mais a detalhe mas resumido o MCP
+%%%%%%%%%%%%%%%%%%%
+
 Em 2026, um grupo de investigadores, apontou limitações no uso de LLM na indústria devido às preocupações que levanta em termos de segurança de dados, na dependência de infraestruturas em nuvem e aos altos custos que resultam da sua utilização.~\cite{hu2026applying}
 
 A solução apresentada no artigo para resolver esse problema é recorrer à utilização de MCP como um \textit{middleware} que permite a implementação de SLM (\textit{Small Languages Models}) localmente para processar os dados. O uso de MCP, procura compensar a limitação destes modelos mais pequenos no que toca a precisão e flexibilidade.
@@ -138,6 +142,10 @@ Para testar o efeito da integração, comparou-se o comportamento do Qwen-7B ant
 
 Desta forma, o artigo conclui que a utilização da junção de SLM com MCP provou-se eficaz com o modelo a gerar e executar autonomamente comandos de consulta à base de dados a partir de pedidos em linguagem natural, realizando a recuperação e integração dos dados.~\cite{hu2026applying}
 
-%%%%%%%%%%%%%%%%
-%% ARTIGO 32 - INTRO. AQUI
-%%%%%%%%%%%%%%%
+Mais tarde, Carson Rodrigues e Oysturn Vas publicam um artigo intitulado \emph{MCP Server Architecture Patterns for LLM-Integrated Applications}~\cite{rodrigues2026mcp} onde catalogam cinco padrões de arquitetura MCP e também apresentam algumas más práticas e preocupações quando se trabalha com estas arquiteturas.
+
+%%% AQUI - ver como fzr a apresentação das 5 arqs.
+
+Na seguinte tabela são apresentadas as arquiteturas catalogadas pelos autores, detalhando o contexto, problema, solução e consequências de cada uma:
+
+
